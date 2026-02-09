@@ -20,8 +20,11 @@ export default class AccordionItem extends HTMLElement {
     this._initialized = true;
 
     const img = document.createElement("img");
-    img.src = `../assets/images/icon-${this.#open ? "minus" : "plus"}.svg`;
-    img.alt = this.#open ? "minus signt" : "plus sign";
+    img.src = new URL(
+      `../assets/images/icon-${this.#open ? "minus" : "plus"}.svg`,
+      import.meta.url,
+    ).href;
+    img.alt = this.#open ? "minus sign" : "plus sign";
 
     const btn = this.querySelector(".accordion-btn");
     btn.appendChild(img);
@@ -29,16 +32,18 @@ export default class AccordionItem extends HTMLElement {
     const panel = this.querySelector(".accordion-panel");
 
     btn.addEventListener("click", () => {
-      this.#open = this.#open === false ? true : false;
+      this.#open = !this.#open;
 
-      btn.ariaExpanded = this.#open ? true : false;
+      btn.setAttribute("aria-expanded", String(this.#open));
 
-      img.src = `../assets/images/icon-${this.#open ? "minus" : "plus"}.svg`;
-      img.alt = this.#open ? "minus signt" : "plus sign";
+      img.src = new URL(
+        `../assets/images/icon-${this.#open ? "minus" : "plus"}.svg`,
+        import.meta.url,
+      ).href;
+      img.alt = this.#open ? "minus sign" : "plus sign";
 
-      !this.#open
-        ? panel.classList.add("hidden")
-        : panel.classList.remove("hidden");
+      if (!this.#open) panel.classList.add("hidden");
+      else panel.classList.remove("hidden");
     });
   }
 }
