@@ -20,11 +20,13 @@ export default class AccordionItem extends HTMLElement {
     this._initialized = true;
 
     const img = document.createElement("img");
+    // Resolve image relative to the page (document) so GitHub Pages repo base is included
     img.src = new URL(
-      `../assets/images/icon-${this.#open ? "minus" : "plus"}.svg`,
-      import.meta.url,
+      `./assets/images/icon-${this.#open ? "minus" : "plus"}.svg`,
+      document.baseURI,
     ).href;
     img.alt = this.#open ? "minus sign" : "plus sign";
+    console.log(document.baseURI);
 
     const btn = this.querySelector(".accordion-btn");
     btn.appendChild(img);
@@ -37,8 +39,8 @@ export default class AccordionItem extends HTMLElement {
       btn.setAttribute("aria-expanded", String(this.#open));
 
       img.src = new URL(
-        `../assets/images/icon-${this.#open ? "minus" : "plus"}.svg`,
-        import.meta.url,
+        `./assets/images/icon-${this.#open ? "minus" : "plus"}.svg`,
+        document.baseURI,
       ).href;
       img.alt = this.#open ? "minus sign" : "plus sign";
 
