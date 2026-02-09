@@ -1,3 +1,5 @@
+import { css } from "./accordion-itemCss.js";
+
 export default class AccordionItem extends HTMLElement {
   #open = false;
 
@@ -9,14 +11,7 @@ export default class AccordionItem extends HTMLElement {
     const styles = document.createElement("style");
     this.appendChild(styles);
 
-    async function loadCss() {
-      const res = await fetch("../components/accordion-item.css");
-      const css = await res.text();
-      styles.textContent = css;
-      //   console.log(css);
-    }
-
-    loadCss();
+    styles.textContent = css;
   }
 
   connectedCallback() {

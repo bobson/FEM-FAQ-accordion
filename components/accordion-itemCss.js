@@ -1,3 +1,4 @@
+export const css = `
 .accordion-item {
     display: grid;
     /* gap: 24px; */
@@ -21,8 +22,6 @@
     overflow: hidden;
     z-index: 10;
 }
-
-
 
 .accordion-panel {
     display: grid;
@@ -50,3 +49,4 @@
     min-height: 0;
     margin: 0;
 }
+`;
