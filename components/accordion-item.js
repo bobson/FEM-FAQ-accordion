@@ -23,9 +23,11 @@ export default class AccordionItem extends HTMLElement {
     // Prevent re-render if reconnected
     if (this._initialized) return;
     this._initialized = true;
+    const baseURL = new URL(".", import.meta.url).href;
+    console.log(baseURL);
 
     const img = document.createElement("img");
-    img.src = `/assets/images/icon-${this.#open ? "minus" : "plus"}.svg`;
+    img.src = `../assets/images/icon-${this.#open ? "minus" : "plus"}.svg`;
     img.alt = this.#open ? "minus signt" : "plus sign";
 
     const btn = this.querySelector(".accordion-btn");
