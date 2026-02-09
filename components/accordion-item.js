@@ -19,7 +19,6 @@ export default class AccordionItem extends HTMLElement {
     if (this._initialized) return;
     this._initialized = true;
     const baseURL = new URL(".", import.meta.url).href;
-    console.log(baseURL);
 
     const img = document.createElement("img");
     img.src = `../assets/images/icon-${this.#open ? "minus" : "plus"}.svg`;
