@@ -20,7 +20,7 @@ export default class AccordionItem extends HTMLElement {
     this._initialized = true;
 
     const img = document.createElement("img");
-    img.src = `../components/icon-${this.#open ? "minus" : "plus"}.svg`;
+    img.src = `/FEM-FAQ-accordion/assets/icon-${this.#open ? "minus" : "plus"}.svg`;
     img.alt = this.#open ? "minus signt" : "plus sign";
 
     const btn = this.querySelector(".accordion-btn");
@@ -33,7 +33,7 @@ export default class AccordionItem extends HTMLElement {
 
       btn.ariaExpanded = this.#open ? true : false;
 
-      img.src = `../components/icon-${this.#open ? "minus" : "plus"}.svg`;
+      img.src = `/FEM-FAQ-accordion/assets/icon-${this.#open ? "minus" : "plus"}.svg`;
       img.alt = this.#open ? "minus signt" : "plus sign";
 
       !this.#open
