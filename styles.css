@@ -178,7 +178,8 @@ layer reset {
         margin: var(--spacing);
         display: grid;
         gap: 1.5rem;
-        max-width: 520px;
+        max-width: 600px;
+        box-sizing: border-box;
 
         @media(min-width: 768px) {
             gap: 2.5rem;

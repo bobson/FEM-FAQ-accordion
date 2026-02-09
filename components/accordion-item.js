@@ -25,7 +25,7 @@ export default class AccordionItem extends HTMLElement {
     this._initialized = true;
 
     const img = document.createElement("img");
-    img.src = `../assets/images/icon-${this.#open ? "minus" : "plus"}.svg`;
+    img.src = `/assets/images/icon-${this.#open ? "minus" : "plus"}.svg`;
     img.alt = this.#open ? "minus signt" : "plus sign";
 
     const btn = this.querySelector(".accordion-btn");
@@ -37,7 +37,7 @@ export default class AccordionItem extends HTMLElement {
       this.#open = this.#open === false ? true : false;
       console.log(this.#open);
       btn.ariaExpanded = this.#open ? true : false;
-      img.src = `../assets/images/icon-${this.#open ? "minus" : "plus"}.svg`;
+      img.src = `/assets/images/icon-${this.#open ? "minus" : "plus"}.svg`;
       img.alt = this.#open ? "minus signt" : "plus sign";
       !this.#open
         ? panel.classList.add("hidden")
